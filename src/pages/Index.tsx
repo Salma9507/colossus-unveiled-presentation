@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
 import IntroSlide from '../components/IntroSlide';
@@ -76,9 +75,9 @@ const Index = () => {
         onClose={() => setSidebarOpen(false)}
       />
 
-      {/* Header */}
+      {/* Header - Made more compact */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-slate-900/90 backdrop-blur-sm border-b border-amber-500/20">
-        <div className="flex items-center justify-between px-6 py-3">
+        <div className="flex items-center justify-between px-6 py-2">
           <button
             onClick={() => setSidebarOpen(true)}
             className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
@@ -114,9 +113,9 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="h-full pt-16 pb-2">
-        <div className="h-full flex items-center justify-center">
+      {/* Main Content - Adjusted padding to account for smaller header */}
+      <main className="h-full pt-12 pb-2">
+        <div className="h-full w-full">
           <CurrentSlideComponent />
         </div>
       </main>

@@ -45,25 +45,25 @@ const TimelineSlide = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-6 py-12 min-h-screen flex items-center">
-      <div className="w-full">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-6">
+    <div className="h-full w-full flex items-center justify-center px-6 py-4">
+      <div className="w-full max-w-6xl">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-bold mb-4">
             <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
               Timeline of Innovation
             </span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-lg text-slate-300 max-w-3xl mx-auto">
             From concept to world-changing reality: The journey of Colossus
           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative">
           {/* Timeline Line */}
           <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-amber-500 via-yellow-500 to-green-500" />
 
           {/* Timeline Events */}
-          <div className="space-y-16">
+          <div className="space-y-12">
             {timelineEvents.map((event, index) => {
               const IconComponent = event.icon;
               const isVisible = visibleEvents.includes(index);
@@ -78,11 +78,11 @@ const TimelineSlide = () => {
                 >
                   {/* Timeline Dot */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${event.color} p-0.5 transition-all duration-500 ${
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${event.color} p-0.5 transition-all duration-500 ${
                       isVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
                     }`}>
                       <div className="w-full h-full bg-slate-900 rounded-full flex items-center justify-center">
-                        <IconComponent className="w-8 h-8 text-white" />
+                        <IconComponent className="w-6 h-6 text-white" />
                       </div>
                     </div>
                   </div>
@@ -95,20 +95,20 @@ const TimelineSlide = () => {
                         ? '-translate-x-10 opacity-0' 
                         : 'translate-x-10 opacity-0'
                   }`}>
-                    <div className={`bg-slate-800/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 hover:border-amber-500/30 transition-all duration-300 ${
-                      isLeft ? 'mr-8' : 'ml-8'
+                    <div className={`bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 hover:border-amber-500/30 transition-all duration-300 ${
+                      isLeft ? 'mr-6' : 'ml-6'
                     }`}>
-                      <div className={`mb-4 ${isLeft ? 'text-left' : 'text-right'}`}>
-                        <div className={`inline-block px-4 py-2 bg-gradient-to-r ${event.color} text-slate-900 rounded-full text-lg font-bold mb-3`}>
+                      <div className={`mb-3 ${isLeft ? 'text-left' : 'text-right'}`}>
+                        <div className={`inline-block px-3 py-1 bg-gradient-to-r ${event.color} text-slate-900 rounded-full text-base font-bold mb-2`}>
                           {event.year}
                         </div>
                       </div>
                       
-                      <h3 className={`text-2xl font-bold text-white mb-4 ${isLeft ? 'text-left' : 'text-right'}`}>
+                      <h3 className={`text-xl font-bold text-white mb-3 ${isLeft ? 'text-left' : 'text-right'}`}>
                         {event.title}
                       </h3>
                       
-                      <p className={`text-slate-300 leading-relaxed ${isLeft ? 'text-left' : 'text-right'}`}>
+                      <p className={`text-slate-300 leading-relaxed text-sm ${isLeft ? 'text-left' : 'text-right'}`}>
                         {event.description}
                       </p>
                     </div>

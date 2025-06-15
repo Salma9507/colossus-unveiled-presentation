@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
 import IntroSlide from '../components/IntroSlide';
 import TimelineSlide from '../components/TimelineSlide';
@@ -39,10 +39,26 @@ const Index = () => {
     setSidebarOpen(false);
   };
 
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'Escape') {
+        setSidebarOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentSlide]);
+
   const CurrentSlideComponent = slides[currentSlide].component;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+    <div className="h-screen w-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -62,12 +78,12 @@ const Index = () => {
 
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-slate-900/90 backdrop-blur-sm border-b border-amber-500/20">
-        <div className="flex items-center justify-between px-6 py-4">
+        <div className="flex items-center justify-between px-6 py-3">
           <button
             onClick={() => setSidebarOpen(true)}
             className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5" />
           </button>
           
           <div className="flex items-center space-x-4">
@@ -85,22 +101,24 @@ const Index = () => {
               disabled={currentSlide === 0}
               className="p-2 hover:bg-slate-800 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextSlide}
               disabled={currentSlide === slides.length - 1}
               className="p-2 hover:bg-slate-800 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="pt-20 min-h-screen">
-        <CurrentSlideComponent />
+      <main className="h-full pt-16 pb-2">
+        <div className="h-full flex items-center justify-center">
+          <CurrentSlideComponent />
+        </div>
       </main>
 
       {/* Progress Bar */}
@@ -111,23 +129,12 @@ const Index = () => {
         />
       </div>
 
-      {/* Keyboard Navigation */}
+      {/* Keyboard Navigation Hint */}
       <div className="fixed bottom-4 right-4 text-xs text-slate-400 bg-slate-800/80 px-3 py-2 rounded-lg backdrop-blur-sm">
         Use ← → arrow keys to navigate
       </div>
     </div>
   );
 };
-
-// Add keyboard navigation
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight') {
-    const event = new CustomEvent('nextSlide');
-    window.dispatchEvent(event);
-  } else if (e.key === 'ArrowLeft') {
-    const event = new CustomEvent('prevSlide');
-    window.dispatchEvent(event);
-  }
-});
 
 export default Index;

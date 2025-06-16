@@ -11,7 +11,7 @@ const ArchitectureSlide = () => {
       title: 'Paper Tape Input',
       description: 'Encrypted messages fed via perforated paper tape at high speed',
       icon: Database,
-      position: 'top-4 left-8',
+      position: 'top-2 left-4',
       details: 'Could read 5,000 characters per second - unprecedented speed for the era'
     },
     {
@@ -27,7 +27,7 @@ const ArchitectureSlide = () => {
       title: 'Control Panel',
       description: 'Plugboards and switches for programming operations',
       icon: Settings,
-      position: 'bottom-8 left-8',
+      position: 'bottom-4 left-4',
       details: 'Operators could reprogram Colossus by changing plug connections and switch settings'
     },
     {
@@ -35,33 +35,33 @@ const ArchitectureSlide = () => {
       title: 'Output System',
       description: 'Decrypted results displayed and printed',
       icon: Zap,
-      position: 'top-4 right-8',
+      position: 'top-2 right-4',
       details: 'Results provided crucial intelligence for Allied military operations'
     }
   ];
 
   return (
-    <div className="container mx-auto px-6 py-12 min-h-screen">
-      <div className="text-center mb-12">
-        <h2 className="text-5xl font-bold mb-6">
+    <div className="container mx-auto px-3 py-2 h-full">
+      <div className="text-center mb-4">
+        <h2 className="text-3xl font-bold mb-2">
           <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
             Architecture & Design
           </span>
         </h2>
-        <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+        <p className="text-sm text-slate-300 max-w-2xl mx-auto">
           Revolutionary engineering that pushed the boundaries of what was possible
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start h-5/6">
         {/* Main Visualization */}
         <div className="lg:col-span-2">
-          <div className="relative bg-slate-800/50 p-8 rounded-3xl border border-slate-700/50 min-h-[600px]">
+          <div className="relative bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 h-full min-h-[400px]">
             {/* Machine Frame */}
-            <div className="absolute inset-8 border-2 border-amber-500/30 rounded-2xl bg-gradient-to-br from-slate-700/20 to-slate-800/20">
+            <div className="absolute inset-4 border-2 border-amber-500/30 rounded-xl bg-gradient-to-br from-slate-700/20 to-slate-800/20">
               {/* Vacuum Tubes Visualization */}
-              <div className="absolute inset-4 grid grid-cols-12 gap-1 opacity-20">
-                {Array.from({ length: 144 }).map((_, i) => (
+              <div className="absolute inset-2 grid grid-cols-12 gap-1 opacity-20">
+                {Array.from({ length: 96 }).map((_, i) => (
                   <div
                     key={i}
                     className="bg-amber-500 rounded-full aspect-square animate-pulse"
@@ -81,19 +81,19 @@ const ArchitectureSlide = () => {
                   onMouseEnter={() => setActiveComponent(component.id)}
                   onMouseLeave={() => setActiveComponent(null)}
                 >
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 p-0.5 transform transition-all duration-300 ${
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 p-0.5 transform transition-all duration-300 ${
                     activeComponent === component.id ? 'scale-110' : 'scale-100'
                   }`}>
                     <div className="w-full h-full bg-slate-900 rounded-full flex items-center justify-center">
-                      <IconComponent className="w-8 h-8 text-amber-400" />
+                      <IconComponent className="w-5 h-5 text-amber-400" />
                     </div>
                   </div>
                   
                   {/* Tooltip */}
-                  <div className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 transition-all duration-200 ${
-                    activeComponent === component.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                  <div className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 transition-all duration-200 ${
+                    activeComponent === component.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
                   }`}>
-                    <div className="bg-slate-900 text-white px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap border border-amber-500/30">
+                    <div className="bg-slate-900 text-white px-2 py-1 rounded text-xs font-medium whitespace-nowrap border border-amber-500/30">
                       {component.title}
                     </div>
                   </div>
@@ -102,15 +102,15 @@ const ArchitectureSlide = () => {
             })}
 
             {/* Size Reference */}
-            <div className="absolute bottom-4 right-4 text-amber-400 text-sm font-medium">
+            <div className="absolute bottom-2 right-2 text-amber-400 text-xs font-medium">
               30 feet × 8 feet × 8 feet
             </div>
           </div>
         </div>
 
         {/* Component Details */}
-        <div className="space-y-6">
-          <h3 className="text-2xl font-bold text-amber-400 mb-6">Key Components</h3>
+        <div className="space-y-3 h-full overflow-y-auto">
+          <h3 className="text-lg font-bold text-amber-400 mb-3">Key Components</h3>
           
           {components.map((component) => {
             const IconComponent = component.icon;
@@ -119,7 +119,7 @@ const ArchitectureSlide = () => {
             return (
               <div
                 key={component.id}
-                className={`bg-slate-800/50 p-6 rounded-xl border transition-all duration-300 cursor-pointer ${
+                className={`bg-slate-800/50 p-3 rounded-lg border transition-all duration-300 cursor-pointer ${
                   isActive 
                     ? 'border-amber-500/50 bg-slate-800/80' 
                     : 'border-slate-700/50 hover:border-slate-600/50'
@@ -127,18 +127,18 @@ const ArchitectureSlide = () => {
                 onMouseEnter={() => setActiveComponent(component.id)}
                 onMouseLeave={() => setActiveComponent(null)}
               >
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-amber-500 to-yellow-400 p-0.5 flex-shrink-0">
-                    <div className="w-full h-full bg-slate-900 rounded-lg flex items-center justify-center">
-                      <IconComponent className="w-6 h-6 text-amber-400" />
+                <div className="flex items-start space-x-2">
+                  <div className="w-8 h-8 rounded bg-gradient-to-r from-amber-500 to-yellow-400 p-0.5 flex-shrink-0">
+                    <div className="w-full h-full bg-slate-900 rounded flex items-center justify-center">
+                      <IconComponent className="w-4 h-4 text-amber-400" />
                     </div>
                   </div>
                   
                   <div className="flex-1">
-                    <h4 className="text-lg font-semibold text-white mb-2">{component.title}</h4>
-                    <p className="text-slate-300 text-sm mb-3">{component.description}</p>
+                    <h4 className="text-sm font-semibold text-white mb-1">{component.title}</h4>
+                    <p className="text-slate-300 text-xs mb-1">{component.description}</p>
                     {isActive && (
-                      <p className="text-amber-400 text-sm font-medium animate-fade-in">
+                      <p className="text-amber-400 text-xs font-medium animate-fade-in">
                         {component.details}
                       </p>
                     )}
@@ -148,9 +148,9 @@ const ArchitectureSlide = () => {
             );
           })}
           
-          <div className="bg-gradient-to-r from-amber-500/10 to-yellow-400/10 p-6 rounded-xl border border-amber-500/20">
-            <h4 className="text-amber-400 font-semibold mb-2">Engineering Marvel</h4>
-            <p className="text-slate-300 text-sm">
+          <div className="bg-gradient-to-r from-amber-500/10 to-yellow-400/10 p-3 rounded-lg border border-amber-500/20">
+            <h4 className="text-amber-400 font-semibold mb-1 text-sm">Engineering Marvel</h4>
+            <p className="text-slate-300 text-xs">
               Colossus used 2,400 vacuum tubes - more than any machine built before it. 
               The engineering team solved unprecedented challenges in heat management, 
               reliability, and electronic switching speed.

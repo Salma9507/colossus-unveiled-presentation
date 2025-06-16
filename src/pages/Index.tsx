@@ -76,21 +76,21 @@ const Index = () => {
         onClose={() => setSidebarOpen(false)}
       />
 
-      {/* Minimal Header - Even more compact */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-slate-900/80 backdrop-blur-sm border-b border-amber-500/20">
-        <div className="flex items-center justify-between px-4 py-1">
+      {/* Ultra-compact Header for laptop screens */}
+      <header className="fixed top-0 left-0 right-0 z-40 bg-slate-900/90 backdrop-blur-sm border-b border-amber-500/20">
+        <div className="flex items-center justify-between px-2 py-1">
           <button
             onClick={() => setSidebarOpen(true)}
             className="p-1 hover:bg-slate-800 rounded transition-colors"
           >
-            <Menu className="w-4 h-4" />
+            <Menu className="w-3 h-3" />
           </button>
           
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2">
             <div className="text-xs text-amber-400">
-              {currentSlide + 1} / {slides.length}
+              {currentSlide + 1}/{slides.length}
             </div>
-            <div className="text-sm font-semibold">
+            <div className="text-xs font-medium max-w-32 truncate">
               {slides[currentSlide].title}
             </div>
           </div>
@@ -101,21 +101,21 @@ const Index = () => {
               disabled={currentSlide === 0}
               className="p-1 hover:bg-slate-800 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-3 h-3" />
             </button>
             <button
               onClick={nextSlide}
               disabled={currentSlide === slides.length - 1}
               className="p-1 hover:bg-slate-800 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-3 h-3" />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Main Content - Full screen with minimal header offset */}
-      <main className="h-full pt-8">
+      {/* Main Content - Optimized for laptop screens */}
+      <main className="h-full pt-6">
         <div className="h-full w-full">
           <CurrentSlideComponent />
         </div>
@@ -129,9 +129,9 @@ const Index = () => {
         />
       </div>
 
-      {/* Keyboard Navigation Hint - Made smaller */}
-      <div className="fixed bottom-2 right-2 text-xs text-slate-500 bg-slate-800/60 px-2 py-1 rounded backdrop-blur-sm">
-        ← → keys
+      {/* Keyboard Navigation Hint - Ultra compact */}
+      <div className="fixed bottom-1 right-1 text-xs text-slate-500 bg-slate-800/60 px-1 py-0.5 rounded backdrop-blur-sm">
+        ← →
       </div>
     </div>
   );

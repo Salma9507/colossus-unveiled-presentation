@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
 import IntroSlide from '../components/IntroSlide';
@@ -75,62 +76,62 @@ const Index = () => {
         onClose={() => setSidebarOpen(false)}
       />
 
-      {/* Header - Made more compact */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-slate-900/90 backdrop-blur-sm border-b border-amber-500/20">
-        <div className="flex items-center justify-between px-6 py-2">
+      {/* Minimal Header - Even more compact */}
+      <header className="fixed top-0 left-0 right-0 z-40 bg-slate-900/80 backdrop-blur-sm border-b border-amber-500/20">
+        <div className="flex items-center justify-between px-4 py-1">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
+            className="p-1 hover:bg-slate-800 rounded transition-colors"
           >
-            <Menu className="w-5 h-5" />
+            <Menu className="w-4 h-4" />
           </button>
           
-          <div className="flex items-center space-x-4">
-            <div className="text-sm text-amber-400">
+          <div className="flex items-center space-x-3">
+            <div className="text-xs text-amber-400">
               {currentSlide + 1} / {slides.length}
             </div>
-            <div className="text-lg font-semibold">
+            <div className="text-sm font-semibold">
               {slides[currentSlide].title}
             </div>
           </div>
 
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1">
             <button
               onClick={prevSlide}
               disabled={currentSlide === 0}
-              className="p-2 hover:bg-slate-800 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="p-1 hover:bg-slate-800 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={nextSlide}
               disabled={currentSlide === slides.length - 1}
-              className="p-2 hover:bg-slate-800 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="p-1 hover:bg-slate-800 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4" />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Main Content - Adjusted padding to account for smaller header */}
-      <main className="h-full pt-12 pb-2">
+      {/* Main Content - Full screen with minimal header offset */}
+      <main className="h-full pt-8">
         <div className="h-full w-full">
           <CurrentSlideComponent />
         </div>
       </main>
 
       {/* Progress Bar */}
-      <div className="fixed bottom-0 left-0 right-0 h-1 bg-slate-700">
+      <div className="fixed bottom-0 left-0 right-0 h-0.5 bg-slate-700/50">
         <div 
           className="h-full bg-gradient-to-r from-amber-500 to-yellow-400 transition-all duration-300"
           style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
         />
       </div>
 
-      {/* Keyboard Navigation Hint */}
-      <div className="fixed bottom-4 right-4 text-xs text-slate-400 bg-slate-800/80 px-3 py-2 rounded-lg backdrop-blur-sm">
-        Use ← → arrow keys to navigate
+      {/* Keyboard Navigation Hint - Made smaller */}
+      <div className="fixed bottom-2 right-2 text-xs text-slate-500 bg-slate-800/60 px-2 py-1 rounded backdrop-blur-sm">
+        ← → keys
       </div>
     </div>
   );

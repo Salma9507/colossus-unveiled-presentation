@@ -45,15 +45,15 @@ const TimelineSlide = () => {
   }, []);
 
   return (
-    <div className="h-full w-full flex items-center justify-center px-4 py-2">
-      <div className="w-full max-w-5xl">
-        <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold mb-3">
+    <div className="h-full w-full flex items-center justify-center px-3 py-2">
+      <div className="w-full max-w-4xl">
+        <div className="text-center mb-4">
+          <h2 className="text-2xl font-bold mb-2">
             <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
               Timeline of Innovation
             </span>
           </h2>
-          <p className="text-base text-slate-300 max-w-2xl mx-auto">
+          <p className="text-sm text-slate-300 max-w-2xl mx-auto">
             From concept to world-changing reality: The journey of Colossus
           </p>
         </div>
@@ -63,7 +63,7 @@ const TimelineSlide = () => {
           <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-amber-500 via-yellow-500 to-green-500" />
 
           {/* Timeline Events */}
-          <div className="space-y-8">
+          <div className="space-y-4">
             {timelineEvents.map((event, index) => {
               const IconComponent = event.icon;
               const isVisible = visibleEvents.includes(index);
@@ -78,11 +78,11 @@ const TimelineSlide = () => {
                 >
                   {/* Timeline Dot */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                    <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${event.color} p-0.5 transition-all duration-500 ${
+                    <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${event.color} p-0.5 transition-all duration-500 ${
                       isVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
                     }`}>
                       <div className="w-full h-full bg-slate-900 rounded-full flex items-center justify-center">
-                        <IconComponent className="w-5 h-5 text-white" />
+                        <IconComponent className="w-4 h-4 text-white" />
                       </div>
                     </div>
                   </div>
@@ -95,20 +95,20 @@ const TimelineSlide = () => {
                         ? '-translate-x-10 opacity-0' 
                         : 'translate-x-10 opacity-0'
                   }`}>
-                    <div className={`bg-slate-800/80 backdrop-blur-sm p-4 rounded-xl border border-slate-700/50 hover:border-amber-500/30 transition-all duration-300 ${
-                      isLeft ? 'mr-4' : 'ml-4'
+                    <div className={`bg-slate-800/80 backdrop-blur-sm p-3 rounded-lg border border-slate-700/50 hover:border-amber-500/30 transition-all duration-300 ${
+                      isLeft ? 'mr-3' : 'ml-3'
                     }`}>
                       <div className={`mb-2 ${isLeft ? 'text-left' : 'text-right'}`}>
-                        <div className={`inline-block px-2 py-1 bg-gradient-to-r ${event.color} text-slate-900 rounded-full text-sm font-bold mb-1`}>
+                        <div className={`inline-block px-2 py-1 bg-gradient-to-r ${event.color} text-slate-900 rounded-full text-xs font-bold mb-1`}>
                           {event.year}
                         </div>
                       </div>
                       
-                      <h3 className={`text-lg font-bold text-white mb-2 ${isLeft ? 'text-left' : 'text-right'}`}>
+                      <h3 className={`text-base font-bold text-white mb-1 ${isLeft ? 'text-left' : 'text-right'}`}>
                         {event.title}
                       </h3>
                       
-                      <p className={`text-slate-300 leading-relaxed text-sm ${isLeft ? 'text-left' : 'text-right'}`}>
+                      <p className={`text-slate-300 leading-relaxed text-xs ${isLeft ? 'text-left' : 'text-right'}`}>
                         {event.description}
                       </p>
                     </div>

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Book, Globe, FileText, ExternalLink } from 'lucide-react';
+import { Book, Globe, FileText } from 'lucide-react';
 
 const resources = [
   {
@@ -10,9 +10,7 @@ const resources = [
     items: [
       {
         title: 'Colossus: The Secrets of Bletchley Park\'s Codebreaking Computers',
-        author: 'B. Jack Copeland',
-        description: 'Comprehensive history of Colossus and its impact',
-        type: 'Academic'
+        author: 'B. Jack Copeland'
       }
     ]
   },
@@ -23,9 +21,7 @@ const resources = [
     items: [
       {
         title: 'The National Museum of Computing',
-        author: 'Official Website',
-        description: 'Home to rebuilt Colossus Mark II computer',
-        type: 'Museum'
+        author: 'Official Website'
       }
     ]
   },
@@ -36,9 +32,7 @@ const resources = [
     items: [
       {
         title: 'The Colossus Computer 1943-1996',
-        author: 'Tommy Flowers (IEEE Annals)',
-        description: 'First-hand account by the chief engineer',
-        type: 'Primary Source'
+        author: 'Tommy Flowers (IEEE Annals)'
       }
     ]
   }
@@ -69,7 +63,7 @@ const ResourcesSlide = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {resources.map((category, categoryIndex) => {
             const IconComponent = category.icon;
             const isVisible = visibleCategories.includes(categoryIndex);
@@ -94,36 +88,15 @@ const ResourcesSlide = () => {
                   </div>
 
                   <div className="bg-slate-700/30 p-4 rounded-lg border border-slate-600/30">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-base font-semibold text-white leading-tight flex-1 mr-2">
-                        {item.title}
-                      </h4>
-                      <span className={`px-2 py-1 bg-gradient-to-r ${category.color} text-slate-900 rounded-full text-xs font-medium flex-shrink-0`}>
-                        {item.type}
-                      </span>
-                    </div>
-                    
-                    <p className="text-slate-400 text-sm mb-2 font-medium">{item.author}</p>
-                    <p className="text-slate-300 text-sm leading-relaxed">{item.description}</p>
+                    <h4 className="text-base font-semibold text-white leading-tight mb-2">
+                      {item.title}
+                    </h4>
+                    <p className="text-slate-400 text-sm font-medium">{item.author}</p>
                   </div>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Simplified Research Tip */}
-        <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 p-6 rounded-xl border border-slate-600/30">
-          <div className="flex items-center justify-center mb-4">
-            <ExternalLink className="w-6 h-6 text-amber-400 mr-3" />
-            <h3 className="text-xl font-bold text-amber-400">Research Tip</h3>
-          </div>
-          
-          <div className="text-center">
-            <p className="text-slate-300 text-base">
-              The National Museum of Computing has a working Colossus replica - visiting in person provides invaluable insight into this remarkable machine's scale and complexity.
-            </p>
-          </div>
         </div>
       </div>
     </div>

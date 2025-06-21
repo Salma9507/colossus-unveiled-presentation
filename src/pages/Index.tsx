@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
 import IntroSlide from '../components/IntroSlide';
@@ -8,6 +7,7 @@ import ImpactSlide from '../components/ImpactSlide';
 import ComparisonSlide from '../components/ComparisonSlide';
 import ConclusionSlide from '../components/ConclusionSlide';
 import NavigationSidebar from '../components/NavigationSidebar';
+import ResourcesSlide from '../components/ResourcesSlide';
 
 const slides = [
   { id: 'intro', title: 'Introduction', component: IntroSlide },
@@ -15,6 +15,7 @@ const slides = [
   { id: 'architecture', title: 'Architecture', component: ArchitectureSlide },
   { id: 'comparison', title: 'Scale Comparison', component: ComparisonSlide },
   { id: 'impact', title: 'Impact', component: ImpactSlide },
+  { id: 'resources', title: 'Resources', component: ResourcesSlide },
   { id: 'conclusion', title: 'Legacy', component: ConclusionSlide },
 ];
 

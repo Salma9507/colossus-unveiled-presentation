@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImage from '@/assets/stand4humanity-logo.jpg';
+import logoImage from '@/assets/improved-stand4humanity-logo.png';
 
 const LogoDisplay = () => {
   return (

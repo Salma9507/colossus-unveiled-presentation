@@ -8,6 +8,7 @@ import ComparisonSlide from '../components/ComparisonSlide';
 import ConclusionSlide from '../components/ConclusionSlide';
 import NavigationSidebar from '../components/NavigationSidebar';
 import ResourcesSlide from '../components/ResourcesSlide';
+import LogoDisplay from '../components/LogoDisplay';
 
 const slides = [
   { id: 'intro', title: 'Introduction', component: IntroSlide },
@@ -118,7 +119,7 @@ const Index = () => {
       {/* Main Content - Optimized for laptop screens */}
       <main className="h-full pt-6">
         <div className="h-full w-full">
-          <CurrentSlideComponent />
+          <LogoDisplay />
         </div>
       </main>
 
